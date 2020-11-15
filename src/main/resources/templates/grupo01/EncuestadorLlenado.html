@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>
+            LlenadodeEncuesta
+        </title>
+        <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    </head>
+<body>
+   <!-- Barra_de_navegación -->
+   <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+    <a class="navbar-text pull-left" href="EncuestaLlenado.html">ENCUESTA EHPM</a>
+     <a class="navbar-brand"  href="EncuestaLlenado.html"><i class="far fa-user-circle float-right"></i></a>   
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></button>
+  
+      </nav>
+ 
+  
+  <!-- Contenido_de_la_página -->
+    <div class="container">
+<h2>Llenado de encuesta</h2>
+    <h3>Encuestador: Juan Perez</h3>
+
+
+    <div class="card">
+      <div class="card-header ">
+        <div class="form-row">
+          <div class="col-md-6">
+            <h2>Hoja de Encuesta:0000</h2>
+
+
+            </div> 
+            <div class="col-md-6">
+				<div class="dropdown">
+					  <button class="btn btn-secondary dropdown float-right" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+					    <i class="fas fa-ellipsis-v" ></i>
+					  </button>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+					    <button class="dropdown-item" type="button">Ver identificacion</button>
+					    <button class="dropdown-item" type="button">Muestral</button>
+					    <button class="dropdown-item" type="button">Ver informacion de visitas</button>
+					  </div>
+				 </div>
+			 </div>         
+          </div>
+          
+        </div>
+        <div class="card-body">
+          <h5>Secciones:</h5>
+          <table class="table text-center">
+            <thead>
+              <tr>
+                <th>Correlativo</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+                <th>Acciones</th>   
+              </tr>
+            </thead>
+      
+            <tbody>
+              <tr th:each= "lista:${encuestas}">
+                <td th:text=${lista.correlativo}></td>
+                <td th:text=${lista.nombre}></td>
+                <td th:text=${lista.estado}></td>
+                <td><div th:switch="${lista.estado}"> 
+    			 <p th:case="'Terminada'"><button
+                type="button"
+                class=" btn btn-light"
+                title="Terminada">
+                <i class="fas fa-ellipsis-h"></i></button></p>
+  				<p th:case="'En progreso'"><button
+                type="button"
+                class="btn"
+                style="background-color:#F7FAFA"
+                title="Iniciar"
+                >Continuar</button></p> 
+     			<p th:case="'Pendiente'"><button
+                type="button"
+                style="background-color:#F7FAFA"
+                class="btn"
+                title="Iniciar"
+                >Iniciar</button></p> 
+</div>
+			     </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+            <div class="card-footer text-muted">
+              <div class="float-right">
+               
+               <button type="button" class="btn" style="background-color:#E2E1E1">
+            Cancelar</button>
+                       
+                <button class="btn btn-dark" type="button">Guardar</button>
+              </div>
+            </div>
+      </div>
+    </div>
+    
+
+    
+  </body>
+</html>

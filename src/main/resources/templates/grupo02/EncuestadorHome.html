@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Asignacion02</title>
+
+    <!-- Hojas css -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  </head>
+
+  <body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" ><i class="fas fa-laptop-code"></i> IGF/GRUPO-02</a>
+
+    </nav>
+
+    <!-- Contenido de la página -->
+    <br>
+    <div class="container">
+    <div class="row">
+    <div class="col-md-10">
+    <h4>EHPM 2020</h4>
+    <h5>Encuestador: grupo-02</h6>
+    
+    </div>
+    
+    <div class="col-md-1 text-center">
+    <h6 class="float-left">Pendientes</h6>
+
+     <table style="width: 4rem;" class="table table-bordered float-left" >
+  
+  <tbody>
+       <td>4</td>
+       </tr> 
+  </tbody>
+  </table>  
+    
+    </div>
+    
+    <div class="text-center col-md-1 " >
+    <h6 class="float-left">Completados</h6>
+     <table style="width: 4rem;" class="table table-bordered float-left" >
+  
+  <tbody>
+       <td>32</td>
+       </tr> 
+  </tbody>
+  </table>  
+    
+    </div>
+    </div>
+    </div>
+    
+    
+    <div class="container">
+      <br><div class="card">
+  <div class="card-header">
+    Encuestas disponibles
+  </div>
+  <div class="card-body">
+  <table class="table table-bordered text-center">
+  <thead>
+    <tr>
+      <th scope="col">Identificacion</th>
+      <th scope="col">Ubicacion geografica</th>
+      <th scope="col">Domicilio</th>
+      <th scope="col">Mes</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr th:each="listaD:${disponible}">
+       <td th:text="${listaD.id}"></td>
+       <td th:text="${listaD.ubicacion}"></td>
+       <td th:text="${listaD.domicilio}"> </td>
+       <td th:text="${listaD.mes}"> </td>
+       <td >   <button type="submit" 
+                class="btn btn-dark" 
+                data-toggle="tooltip" 
+                data-placement="bottom" 
+                title="Inicar accion">Iniciar</button>  </td>
+       </tr> 
+  </tbody>
+</table>
+  
+  </div>
+</div>
+<br>
+<br>
+
+<br><div class="card">
+  <div class="card-header">
+    Encuestas pendientes
+  </div>
+  <div class="card-body">
+  <table class="table table-bordered text-center">
+  <thead>
+    <tr>
+      <th scope="col">Identificacion</th>
+      <th scope="col">Domiciolio</th>
+      <th scope="col">Proxima visita</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr th:each="listaP:${pendiente}">
+      <td th:text="${listaP.id}"></td>
+       <td th:text="${listaP.domicilio}"></td>
+       <td th:text="${listaP.fecha}+' - '+${listaP.hora}"> </td>
+       <td >  <button type="submit" 
+                class="btn btn-dark " 
+                data-toggle="tooltip" 
+                data-placement="bottom" 
+                title="Continuar accion">Continuar</button> </td>
+       </tr> 
+  </tbody>
+</table>
+  
+  </div>
+</div>
+
+    <!-- Scripts js -->
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Script tooltip -->
+    <script src="js/script_tooltip.js"></script>
+    <!-- Script tabla -->
+    <script src="js/tabla.js"></script>
+  </body>
+</html>
+    <!-- Scripts js -->
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Script tooltip -->
+    <script src="js/script_tooltip.js"></script>
+    <!-- Script tabla -->
+    <script src="js/tabla.js"></script>
+  </body>
+</html>
