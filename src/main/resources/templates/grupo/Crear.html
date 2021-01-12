@@ -57,14 +57,15 @@
           </div> 
             
           <div class="card-body">
-            <form>
-
+            <form id="formGrupos" th:action="@{/grupo/save}" th:object="${grupos}" method="post">
+               
               <div class="form-row">
 
                 <div class="form-group col-md-6">
                   <label for="codigo">
-                    Código: <span class="text-danger">*</span>
+                    Codigo: <span class="text-danger">*</span>
                   </label>
+                  <input type="hidden" th:field="*{id}">
                   <input
                     type="text"
                     class="form-control"
@@ -72,6 +73,7 @@
                     placeholder="Código del grupo"
                     name="codigo"
                     value=""
+                    th:field="*{codigoGrupos}"
                   >
                 </div>
 
@@ -80,7 +82,7 @@
                     Nombre: <span class="text-danger">*</span>
                   </label>
                   <input type="text" class="form-control" placeholder="Nombre del grupo" id="nombre"
-                      name="nombre" value="">
+                      name="nombre" value="" th:field="*{nombreGrupos}">
                 </div>
               </div>
 
@@ -90,7 +92,7 @@
                         <div class="form-group col-md-6">
 
                           <label for="carrera">Zona de operación: <span class="text-danger">*</span></label><br>
-                          <select name="carrera" id="carrera" class="form-control">
+                          <select name="carrera" id="carrera" class="form-control" th:field="*{zonaDeOperacionGrupos}">
 
                               <option value="" disabled selected>Seleccione una zona</option>
                               <option value="Jefedecampo">Oriental</option>
@@ -106,9 +108,6 @@
 
           </div>
 
-                </form>
-            
-
             <div class="card-footer text-muted">
 
                 <div class="float-right">
@@ -118,11 +117,12 @@
                     <button type="submit" class="btn btn-dark">Guardar</button>
                 </div>
             </div>
-        </div>
-      </div>
+		  </form>
+        </div>         
+      </div>      
     </div>
   </div>
-
+ 
   <!-- Scripts generales -->
   <div th:replace="base/general :: scripts"></div>
 </body>
