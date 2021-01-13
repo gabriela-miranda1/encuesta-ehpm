@@ -49,7 +49,11 @@
    
       <h5 class="subTit">Coordinación de Levantamiento de Información</h5>
     </div>
-  
+    <!-- Mensajes -->
+	<div class="alert alert-success alert-dismissable" th:if="${success !=null}">
+		<label th:text="${success}"></label>
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+	</div>
     <div class="row mb-4">
       <div class="col-md-12">
         <div class="card">
@@ -80,9 +84,9 @@
         
               <tbody>
                 <tr th:each= "lista:${mostrarGrupo}">
-                  <td th:text=${lista.codigo}></td>
-                  <td th:text=${lista.nombre}></td>
-                  <td th:text=${lista.zonaDeOperacion}></td>
+                  <td th:text=${lista.codigoGrupos}></td>
+                  <td th:text=${lista.nombreGrupos}></td>
+                  <td th:text=${lista.zonaDeOperacionGrupos}></td>
                   <td>
                     <a
                       th:href="@{/grupo/miembros/administrar}"
