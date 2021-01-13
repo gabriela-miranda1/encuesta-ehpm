@@ -108,13 +108,13 @@
                       data-placement="bottom"
                       title="Editar grupo"
                     ><i class="fas fa-edit"></i></a>
-                    <button
-                      type="button"
-                      class="btn btn-outline-dark"
-                      data-toggle="tooltip"
-                      data-placement="bottom"
-                      title="Eliminar grupo"
-                    ><i class="fas fa-trash-alt"></i></button>              
+                    <button class="btn btn-outline-dark"
+                       id="btnEliminar" 
+                       th:attr="onclick=|eliminarGrupos('${lista.id}' )|" 
+                       data-toggle="tooltip" 
+                       data-placement="bottom" 
+                       title="Eliminar miembro"> 
+                       <i class="fas fa-trash-alt"></i></button>           
                   </td>                            
                 </tr>
               </tbody>
@@ -152,5 +152,6 @@
   
   <!-- Scripts generales -->
   <div th:replace="base/general :: scripts"></div>
+   <script th:src="@{/js/grupos/grupos.js}" type="text/javascript"></script> 
 </body>
 </html>
