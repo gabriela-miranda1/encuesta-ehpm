@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>  
+  <title>Encuestador</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Hojas de estilo generales -->
+  <div th:replace="base/general :: hojas_de_estilo"></div>
+</head>
+
+<body>
+  <!-- Barra_de_navegación -->
+  <div th:replace="base/general :: navbar(~{ :: .elementos})">
+    <ul class="navbar-nav mr-auto elementos">
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="index.html">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="tabla.html">Tabla</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="formulario.html">Formulario</a>
+      </li> -->
+    </ul>
+  </div>
+
+	<!-- Contenido_de_la_página -->
+  <div class="container">
+
+    <!-- Ruta del contendio -->
+    <ol th:replace="base/general :: ruta_contenido(
+      ruta=~{ :: .ruta}, ruta2=~{ :: .ruta2})">
+        <!-- Ruta de la página -->              
+    	<div class="ruta">Encuestas</div>
+		<div class="ruta2"></div>	
+    </ol>
+
+    <!-- Título de la pantalla -->
+    <div th:replace="base/general :: titulo_pantalla(
+      titulo=~{ :: .titulo}, btnPrincipal=~{ :: .btnPrincipal}, subTit=~{ :: .subTit}
+    )">
+      <h2 class="titulo">EHPM 2020</h2>
+	<button class="btn btn-dark btn-sm btnPrincipal btn-modal" type="button" data-toggle="modal" data-target="#muestra" data-whatever="@mdo"><i class="	fas fa-plus"></i>	Iniciar Encuesta</button>     
+      <h5 class="subTit">Encuestador: Juan Perez</h5>      
+		</div>
+	
+
+		<div class="row mb-4">
+      <div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<h5>Encuestas pendientes</h5>
+					</div>
+
+					<div class="card-body">
+						<table class="table text-center table-striped ">
+							<thead>
+								<tr>
+									<th scope="col">Identificación</th>
+									<th scope="col">Domicilio</th>
+									<th scope="col">Próxima visita</th>
+									<th scope="col">Acciones</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr th:each="listaP:${pendiente}">
+									<td th:text="${listaP.id}"></td>
+									<td th:text="${listaP.domicilio}"></td>
+									<td th:text="${listaP.fecha}+' - '+${listaP.hora}"></td>
+									<td>
+										<a
+											th:href="@{/encuestador/llenado}"
+											class="btn btn-outline-dark"
+											data-toggle="tooltip"
+											data-placement="bottom"
+											title="Continuar llenado"
+										>Continuar</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>		
+					</div>
+				</div>
+      		</div>
+		</div>
+	</div>
+<div class="modal fade" id="muestra" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Observaciones realizadas</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>                        					
+						<!--Identificacion-->
+						<div class="form-group">
+							<label for="inicio">Identificacion muestral: <span class="text-danger">*</span> </label>
+						<input class="form-control" >
+						<!--Domicilio-->    
+						<div class="form-group">
+							<label for="inicio">Domicilio: <span class="text-danger">*</span> </label>
+							<input class="form-control" >
+						</div>
+					</form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancelar</button>
+                    <a th:href="@{/encuestador/llenado}" type="button" class="btn btn-dark">Crear</a>                   
+                </div>			
+            </div>
+        </div>
+    </div>		
+	<!-- Scripts generales -->
+	<div th:replace="base/general :: scripts"></div>
+</body>
+</html>

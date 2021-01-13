@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Jornada</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html"><i class="fas fa-laptop-code"></i>Asignacion</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+    </nav>
+
+    <div class="container">
+
+        <br>
+        <br>
+        <h1>Agregar | Editar muestra</h1>
+
+    <div class="card">
+        <div class="card-header">
+        <div float-left>Informacion de la muestra </div>
+        <small class="text-danger">* Obligatorio</small>
+        </div>
+        <div class="card-body">
+          
+            <form id="formularioEstudiante" action="" method="GET">
+            
+                <div class="form-row"> 
+                <!--Identificacion-->
+                <div class="form-group col-md-6">
+                <label for="inicio">Identificacion muestral: <span class="text-danger">*</span> </label>
+                <input class="form-control" >
+                </div>
+                
+                <!--Zona Geografica-->    
+                <div class="form-group col-md-6">
+                <label for="carrera">Zona geografica: <span class="text-danger">*</span></label><br>
+                <select class="form-control">
+                <option th:each="lista3:${zona}">
+                <td th:text="${lista3.nombre}"></td></option>        
+                </select>
+                </div>
+                </div>
+                <div class="form-row">
+                
+                <!--Departamentos-->    
+                <div class="form-group col-md-6">
+                <label for="carrera">Departamentos: <span class="text-danger">*</span></label><br>
+                <select class="form-control" id="">
+                <option th:each="lista:${departamento}">
+                <td th:text="${lista.nombre}"></td></option>
+                </select>
+                </div>
+                
+                <!--Municipio-->
+                <div class="form-group col-md-6">
+                <label for="carrera">Municipios: <span class="text-danger">*</span></label><br>
+                <select class="form-control">
+                <option th:each="lista2:${municipio}">
+                <td th:text="${lista2.nombre}"></td></option>
+                </select>
+                </div>
+                </div>
+
+                <div class="form-row"> 
+                <!--Mes-->
+                <div class="form-group col-md-6">
+                <label for="carrera">Mes: <span class="text-danger">*</span></label><br>
+                <select class="form-control">
+                <option th:each="lista4:${grupo}">
+                <td th:text="${lista4.nombre}"></td></option>
+                </select>
+                </div>
+                
+                <!--Domicilio-->    
+                <div class="form-group col-md-6">
+                <label for="inicio">Domicilio: <span class="text-danger">*</span> </label>
+                <input class="form-control" >
+                </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="card-footer text-muted">
+          <div class="float-right">
+                <!--boton Cancelar-->
+                <a 
+                th:href="@{/mostrarrmuestra}"
+                id="btn-limpiar"
+                class="btn btn-outline-dark" 
+                data-toggle="tooltip" 
+                data-placement="bottom" 
+                title="Editar">Cancelar</a>
+                
+                
+                <!--Boton Guardar-->
+                <button type="submit" 
+                class="btn btn-dark" 
+                data-toggle="tooltip" 
+                data-placement="bottom" 
+                title="Editar">Guardar</button>
+              </div>
+        </div>
+      </div>
+    </div>
+
+
+           <!--Scripts JS-->
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="formulario.js"></script>
+</body>
+</html>

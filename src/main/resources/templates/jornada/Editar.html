@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Editar Jornada</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Hojas de estilo generales -->
+    <div th:replace="base/general :: hojas_de_estilo"></div>
+</head>
+
+<body>
+    <!-- Barra_de_navegación -->
+    <div th:replace="base/general :: navbar(~{ :: .elementos})">
+        <ul class="navbar-nav mr-auto elementos">
+            <!-- <li class="nav-item">
+        <a class="nav-link" href="index.html">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="tabla.html">Tabla</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="formulario.html">Formulario</a>
+      </li> -->
+        </ul>
+    </div>
+    <div class="container">
+        <!-- Título de la pantalla -->
+        <div th:replace="base/general :: titulo_pantalla(titulo=~{ :: .titulo}, btnPrincipal=~{ :: .btnPrincipal}, subTit=~{ :: .subTit})">
+            <h2 class="titulo">Editar Jornada</h2>
+            <div class="btnPrincipal"></div>
+            <h5 class="subTit"></h5>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Informacion de la Jornada</h5>
+                        <small class="text-danger">* Obligatorio</small>
+                    </div>
+                    <div class="card-body">
+                        <form id="formJornada" action="" method="GET">
+                            <div class="form-row">
+                              <!--Zona de operacion-->
+                              <div class="form-group col-md-6">
+                                <label for="carrera">Zona de operación: <span class="text-danger">*</span></label><br>
+                                <select class="form-control">
+                                  <option th:each="lista3:${zona}">
+                                    <td th:text="${lista3.nombre}"></td>
+                                  </option>
+                                </select>
+                              </div>
+                              <!--Fecha Inicio-->
+                              <div class="form-group col-md-3">
+                                <label for="inicio">Fecha de Inicio: <span class="text-danger">*</span> </label>
+                                <input class="form-control" type="date">
+                              </div>
+                              <!--Fecha Final-->
+                              <div class="form-group col-md-3">
+                                <label for="fin">Fecha de fin: <span class="text-danger">*</span></label>
+                                <input class="form-control" type="date">
+                              </div>
+                            </div>
+                            <div class="form-row">
+                              <!--Departamentos-->
+                              <div class="form-group col-md-6">
+                                <label for="carrera">Departamentos: <span class="text-danger">*</span></label><br>
+                                <select class="form-control" id="">
+                                  <option th:each="lista:${departamento}">
+                                    <td th:text="${lista.nombre}"></td>
+                                  </option>
+                                </select>
+                              </div>
+                              <!--Municipio-->
+                              <div class="form-group col-md-6">
+                                <label for="carrera">Municipios: <span class="text-danger">*</span></label><br>
+                                <select class="form-control">
+                                  <option th:each="lista2:${municipio}">
+                                    <td th:text="${lista2.nombre}"></td>
+                                  </option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-row">
+                              <!--Grupo-->
+                              <div class="form-group col-md-6">
+                                <label for="carrera">Grupo: <span class="text-danger">*</span></label><br>
+                                <select class="form-control">
+                                  <option th:each="lista4:${grupo}">
+                                    <td th:text="${lista4.nombre}"></td>
+                                  </option>
+                                </select>
+                              </div>
+                              <!-- Cantidad de cuestionarios -->
+                              <div class="form-group col-md-6">
+                                <label for="inicio">Cuestionarios a llenar: <span class="text-danger">*</span> </label>
+                                <input
+                                  class="form-control"
+                                  type="number"
+                                  min="1"
+                                  name="cantCuestionario"
+                                  placeholder="Cantidad de cuestionarios a llenar"
+                                >
+                              </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <div class="float-right">
+                            <a th:href="@{/jornada/administrar}" type="button" class="btn btn-outline-dark">
+                                Cancelar</a>
+                            <!--Boton Guardar-->
+                            <button type="submit" class="btn btn-dark" data-toggle="tooltip" data-placement="bottom" title="Editar">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Scripts generales -->
+            <div th:replace="base/general :: scripts"></div>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Administrar Jornadas</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Hojas de estilo generales -->
+    <div th:replace="base/general :: hojas_de_estilo"></div>
+</head>
+
+<body>
+    <!-- Barra_de_navegación -->
+    <div th:replace="base/general :: navbar(~{ :: .elementos})">
+        <ul class="navbar-nav mr-auto elementos">
+            <!-- <li class="nav-item">
+        <a class="nav-link" href="index.html">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="tabla.html">Tabla</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="formulario.html">Formulario</a>
+      </li> -->
+        </ul>
+    </div>
+    <div class="container">
+        <!-- Título de la pantalla -->
+        <div th:replace="base/general :: titulo_pantalla(
+      titulo=~{ :: .titulo}, btnPrincipal=~{ :: .btnPrincipal}, subTit=~{ :: .subTit}
+    )">
+            <h2 class="titulo">Administrar Jornada</h2>
+            <a th:href="@{/jornada/crear}" class="btn btn-dark btn-sm btnPrincipal"><i class="fas fa-plus"></i> Nueva Jornada</a>
+            <h5 class="subTit">Coordinación de Levantamiento de Información</h5>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Lista de Jornadas </h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- Búsqueda -->
+                        <div class="row justify-content-end mb-4">
+                            <div class="col-md-4">
+                                <input type="text" placeholder="Buscar" class="form-control d-inline">
+                            </div>
+                        </div>
+                        <table class="table table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Inicio</th>
+                                    <th scope="col">Fin</th>
+                                    <th scope="col">Zona Geografica</th>
+                                    <th scope="col">Grupo</th>
+                                    <th scope="col">Cuestionario</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="jornada:${exito}">
+                                    <td th:text="${jornada.fechaI}"></td>
+                                    <td th:text="${jornada.fechaF}"></td>
+                                    <td>
+                                        <button type="submit" class=" btn btn-outline-dark" data-toggle="tooltip" data-placement="bottom" title="Ubicacion"><i class="fas fa-map-marker-alt"></i></button>
+                                    </td>
+                                    <td th:text="${jornada.grupo}"></td>
+                                    <td th:text="${jornada.getCantCuestionarios()}"></td>
+                                    <!-- <td>
+                                        <a 
+                                            th:href="@{/jornada/cuestionarios/administrar}"
+                                            class="btn btn-outline-dark"
+                                            data-toggle="tooltip"
+                                            data-placement="bottom"
+                                            title="Cuestionarios"
+                                        ><i class="fas fa-book"></i></a>
+                                    </td> -->
+                                    <td>
+                                        <a th:href="@{/jornada/editar}" class="btn btn-outline-dark" role="button" data-toggle="tooltip" data-placement="bottom" title="Editar Jornada"><i class="fas fa-edit"></i></a>
+                                        <button type="button" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="bottom" title="Eliminar Jornada">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-end">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!-- Scripts generales -->
+            <div th:replace="base/general :: scripts"></div>
+</body>
+
+</html>

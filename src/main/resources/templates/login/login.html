@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>  
+  <title>Iniciar Sesión</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Hojas de estilo generales -->
+  <div th:replace="base/general :: hojas_de_estilo"></div>
+</head>
+
+<body>
+   <!-- Barra de navegación -->
+   <nav th:fragment="navbar(elementos)" class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <a class="navbar-brand" th:href="@{/}"><i class="fas fa-laptop-code"></i> DIGESTYC-EHPM</a>
+  </nav>
+  
+  <!-- Contenido_de_la_página -->
+  <div class="container">
+
+    <br>
+    <div class="row mb-4 align-items-center">
+      <div class="col-md-6">
+        <img
+          th:src="@{/img/digestyc_logo.jpg}"
+          alt="Digestyc logo"
+          style="width:75%;height:100%;border-radius:10px;"
+        >
+      </div>
+
+      <div class="col-md-6">
+        <div class="card h-75">
+          <div class="card-header">
+            <h5 class="text-center">
+              Sistema para el Diseño, Ejecución de la Encuesta de Hogares 
+              de Propósitos Múltiples
+            </h5>
+          </div>
+          <div class="card-body">            
+            <form id="formLogin" th:action="@{/login}" method="POST">
+              <!-- Usuario -->
+              <div class="form-group col-md-12 mb-4">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="username"
+                  placeholder="Nombre de usuario"
+                  
+                >
+              </div>
+
+              <!-- Contraseña -->
+              <div class="form-group col-md-12 mb-4">
+                <input
+                  class="form-control"
+                  type="password"
+                  name="password"
+                  placeholder="Contraseña"
+                  
+                >
+              </div>
+
+              <!--<div class="form-group col-md-12">
+                <a th:href="@{/home}" type="submit" class="btn btn-primary form-control">
+                  Iniciar sesión
+                </a>-->
+                <button class="btn btn-primary form-control" type="submit">Iniciar sesión</button>
+              </div>
+                
+            </form>
+            <!--<form name="form" th:action="@{/login}" method="POST">
+                Usuario:<br>
+                <input type="text" name="username" ><br>
+                Password:<br>
+                <input type="password" name="password"><br>
+                <input name="submit" type="submit" value="Ingresar" >
+          </form>-->
+          </div>
+        </div>
+
+      </div>      
+    </div>
+  </div>
+    
+  <!-- Scripts generales -->
+  <div th:replace="base/general :: scripts"></div>
+</body>
+</html>  

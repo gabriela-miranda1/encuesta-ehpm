@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>  
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Hojas de estilo generales -->
+  <div th:replace="base/general :: hojas_de_estilo"></div>
+</head>
+
+<body>
+  <!-- Barra_de_navegación -->
+  <div th:replace="base/general :: navbar(~{ :: .elementos})">
+    <ul class="navbar-nav mr-auto elementos">
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="index.html">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="tabla.html">Tabla</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="formulario.html">Formulario</a>
+      </li> -->
+    </ul>
+	</div>
+
+	<!-- Contenido_de_la_página -->
+  <div class="container">
+
+    <!-- Título de la pantalla -->
+    <div th:replace="base/general :: titulo_pantalla(
+      titulo=~{ :: .titulo}, btnPrincipal=~{ :: .btnPrincipal}, subTit=~{ :: .subTit}
+    )">
+      <h2 class="titulo">DIGESTYC</h2>
+      <div class="btnPrincipal"></div>
+			<h5 class="subTit"></h5>
+    </div>
+	
+		<div class="row mb-4">
+      <div class="col-md-12">	
+					<h4>BIENVENIDOS AL SISTEMA DE ENCUESTAS DE HOGARES DE PROPÓSITOS MÚLTIPLES</h4>	
+		  
+			</div>   		   	
+		</div>
+	</div>	 
+	
+	<!-- Scripts generales -->
+  <div th:replace="base/general :: scripts"></div>
+	</body>
+</html>

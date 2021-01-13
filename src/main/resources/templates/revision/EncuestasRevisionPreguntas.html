@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisar Preguntas</title>
+    <div th:replace="base/general :: hojas_de_estilo"></div>
+</head>
+
+<body>
+    <!-- Barra_de_navegación -->
+    <div th:replace="base/general :: navbar(~{ :: .elementos})">
+        <ul class="navbar-nav mr-auto elementos">           
+        </ul>
+    </div>
+    <!-- Contenido_de_la_página -->
+    <div class="container">
+        <!-- Título de la pantalla -->
+        <div th:replace="base/general :: titulo_pantalla(titulo=~{ :: .titulo}, btnPrincipal=~{ :: .btnPrincipal}, subTit=~{ :: .subTit})">
+            <h2 class="titulo">Sección Salud</h2>
+			<h5 class="subTit"></h5>
+            <div class="btnPrincipal"></div>
+            <!-- <h5 class="subTit">Grupo:04</h5> -->
+            <!-- <button class="btn btn-primary btnPrincipal"><i class="fas fa-plus"></i> Botón Principal</button>   -->
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Preguntas</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row-mb-2">
+                            <div class="col-md-12-mb-2">
+                                <label for="pregunta"> 1. Pregunta de selección múltiple: </label>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio" disabled> Option 1</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio" disabled checked> Option 2</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio" disabled> Option 3</label>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="pregunta2"> 2. Pregunta de selección múltiple: </label>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio1" disabled> Option 1</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio1" disabled> Option 2</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio1" disabled> Option 3</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="optradio1" disabled checked> Option 4</label>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="pregunta3"> 3. Pregunta de múltiples respuestas: </label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" checked disabled>
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Opción 1
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+                                    <label class="form-check-label" for="defaultCheck2">
+                                        Opción 2
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="pregunta4"> 4. Pregunta de múltiples respuestas:</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck11" disabled>
+                                    <label class="form-check-label" for="defaultCheck11">
+                                        Opción 1
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck22" checked disabled>
+                                    <label class="form-check-label" for="defaultCheck22">
+                                        Opción 2
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck33" checked disabled>
+                                    <label class="form-check-label" for="defaultCheck33">
+                                        Opción 3
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck44" disabled>
+                                    <label class="form-check-label" for="defaultCheck44">
+                                        Opción 4
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row-mb-2">
+                            <div class="row-mb-2">
+                                <label for="pregunta2"> 5. Pregunta de respuesta corta: </label>
+                                <input type="text" class="form-control" value="Respuesta del encuestado" disabled>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="card-footer">
+                        <ul class="pagination justify-content-end">
+                            <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Comentarios</h5>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                         <div class="form-group">
+                            <label for="comentarios" class="col-form-label">Comentarios recibidos:</label>
+                            <textarea class="form-control" id="comentarios" name="comentarios" rows="4" cols="50" disabled>Estos son comentarios sobre esta sección</textarea>                            
+                        </div>      
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Agregar comentario:</label>
+                            <textarea class="form-control" id="recipient-name" name="w3review" rows="4" cols="50"></textarea>                            
+                        </div>                        
+                    </form>
+                    </div>
+                    <div class="card-footer">
+                        <a th:href="@{/revision/encuesta}" class="btn btn-dark btn-block" data-toggle="tooltip" data-placement="bottom">Finalizar revisión</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="textoCorto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detalle de pregunta</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Título de la pregunta:</label>
+                            <input type="text" class="form-control" id="recipient-name" placeholder="Escribe tu pregunta">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Descripción extra:</label>
+                            <input type="text" class="form-control" id="recipient-name" placeholder="Añadir indicaciones">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Respuesta:</label>
+                            <input type="text" class="form-control" id="recipient-name" placeholder="Respuesta" disabled>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-dark">Crear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="seleccion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detalle de pregunta</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Título de la pregunta:</label>
+                            <input type="text" class="form-control" id="recipient-name" placeholder="Escribe tu pregunta">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Descripción extra:</label>
+                            <input type="text" class="form-control" id="recipient-name" placeholder="Añadir indicaciones">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Respuestas:</label>
+                            <input type="text" class="form-control" id="recipient-name" placeholder="Respuesta 1">
+                            <br>
+                            <input type="text" class="form-control" id="recipient-name" placeholder="Respuesta 2">
+                            <br>
+                            <button class="btn btn-outline-dark btn-block btn-modal" type="button" data-toggle="modal" data-target="#seleccion" data-whatever="@mdo"> <i class="fas fa-plus"></i> Añadir respuesta</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-dark">Crear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+   <!-- Scripts generales -->
+  <div th:replace="base/general :: scripts"></div>
+</body>
+
+</html>

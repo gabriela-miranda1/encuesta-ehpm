@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>  
+  <title>Agregar cuestionarios a jornada</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Hojas de estilo generales -->
+  <div th:replace="base/general :: hojas_de_estilo"></div>
+</head>
+
+<body>
+  <!-- Barra_de_navegación -->
+  <div th:replace="base/general :: navbar(~{ :: .elementos})">
+    <ul class="navbar-nav mr-auto elementos">
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="index.html">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="tabla.html">Tabla</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="formulario.html">Formulario</a>
+      </li> -->
+    </ul>
+  </div>
+  
+  <!-- Contenido_de_la_página -->
+  <div class="container">
+    <!-- Título de la pantalla -->
+    <div th:replace="base/general :: titulo_pantalla(
+      titulo=~{ :: .titulo}, btnPrincipal=~{ :: .btnPrincipal}, subTit=~{ :: .subTit}
+    )">
+      <h2 class="titulo">Agregar cuestionarios a la jornada XX</h2>
+      <h5 class="subTit">Coordinación de levantamiento de información</h5> 
+      <div class="btnPrincipal"></div>           
+    </div>
+
+    <!-- Formulario -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+
+          <div class="card-header">
+            <h5>Agregar cuestionarios</h5>
+          </div>
+
+          <div class="card-body">
+            <table class="table text-center">
+              <thead>
+                <tr>
+                  <th>Selección</th>
+                  <th>Identificación muestral</th>
+                  <th>Domicilio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                  </td>
+                  <td>001</td>
+                  <td>Dirección</td>		 							
+                </tr>
+              </tbody>	 				
+            </table>
+          </div>
+
+          <div class="card-footer">
+            <div class="float-right">
+              <!-- Botón de cancelar -->
+              <a th:href="@{/jornada/cuestionarios/administrar}"
+                class="btn btn-outline-dark"
+              >Cancelar</a>
+
+              <!-- Botón de submit -->
+              <button class="btn btn-dark" type="submit">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <!-- Scripts generales -->
+  <div th:replace="base/general :: scripts"></div>
+</body>
+</html>  

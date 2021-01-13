@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>  
+  <title>Revisión de encuesta</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Hojas de estilo generales -->
+  <div th:replace="base/general :: hojas_de_estilo"></div>
+</head>
+
+
+<body>
+  <!-- Barra_de_navegación -->
+  <div th:replace="base/general :: navbar(~{ :: .elementos})">
+    <ul class="navbar-nav mr-auto elementos">
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="index.html">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="tabla.html">Tabla</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="formulario.html">Formulario</a>
+      </li> -->
+    </ul>
+	</div>
+	
+	<!-- Contenido_de_la_página -->
+  <div class="container">
+    <!-- Título de la pantalla -->
+    <div th:replace="base/general :: titulo_pantalla(
+      titulo=~{ :: .titulo}, btnPrincipal=~{ :: .btnPrincipal}, subTit=~{ :: .subTit}
+    )">
+      <h2 class="titulo">Revisión de encuesta</h2>
+	  <div class="btnPrincipal"></div>
+     
+      <h5 class="subTit">Encuestador: Juan Perez</h5>      
+		</div>
+
+		<div class="row mb-4">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header ">
+					<div class="row">
+                            <div class="col-md-8">
+                                <h5>Cuestionario: 9021</h5>
+                            </div>                            
+                        </div>         						
+						<!-- <div class="form-row">
+							<div class="col-md-6">
+								<h5>Hoja de Encuesta: 0000</h5>
+							</div> 
+
+							<div class="col-md-6">
+								<div class="dropdown">
+									<button class="btn btn-secondary dropdown float-right" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+											<i class="fas fa-ellipsis-v" ></i>
+									</button>
+									<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<button class="dropdown-item" type="button">Ver identificacion</button>
+										<button class="dropdown-item" type="button">Muestral</button>
+										<button class="dropdown-item" type="button">Ver informacion de visitas</button>
+									</div>
+								</div>
+							</div>         
+						</div>      -->
+					</div>
+
+					<div class="card-body">
+						<table class="table text-center table-striped">
+							<thead>
+								<tr>
+									<th>Correlativo</th>
+									<th>Nombre</th>																	
+									<th>Acciones</th>   
+								</tr>
+							</thead>
+					
+							<tbody>
+								<tr th:each= "lista:${encuestas}">
+									<td th:text=${lista.correlativo}></td>
+									<td th:text=${lista.nombre}></td>									
+									<td>													    
+											<a
+												th:href="@{/revision/encuesta/preguntas}"												
+												type="button"
+												class=" btn btn-outline-dark"
+												data-toggle="tooltip"
+												data-placement="bottom"
+												title="Revisar"
+											><i class="	fa fa-edit"></i></a>	
+											<button
+												th:href="@{/revision/encuesta/preguntas}"												
+												type="button"
+												class=" btn btn-outline-dark btn-modal"
+												data-toggle="modal"
+												data-target="#comentario"
+												data-placement="bottom"
+												data-whatever="@mdo"												
+												title="Comentarios"
+											><i class="	far fa-comment-alt"></i></button>													
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="card-footer text-muted">
+						<div class="float-right">
+							<a
+								th:href="@{/revision}"
+								class="btn btn-outline-dark"
+							>Cancelar</a>   
+							<button class="btn btn-dark" type="button">Guardar</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>	
+<div class="modal fade" id="comentario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Observaciones realizadas</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Comentarios:</label>
+                            <textarea class="form-control" id="recipient-name" name="w3review" rows="4" cols="50" disabled>Estos son comentarios sobre esta sección</textarea>                            
+                        </div>                    
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Ok</button>                    
+                </div>
+            </div>
+        </div>
+    </div>
+	<!-- Scripts generales -->
+	<div th:replace="base/general :: scripts"></div>
+</body>
+</html>

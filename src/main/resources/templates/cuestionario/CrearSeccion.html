@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>  
+  <title>Diseño de Formulario</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Hojas de estilo generales -->
+  <div th:replace="base/general :: hojas_de_estilo"></div>
+</head>
+
+<body>
+  <!-- Barra_de_navegación -->
+  <div th:replace="base/general :: navbar(~{ :: .elementos})">
+    <ul class="navbar-nav mr-auto elementos">
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="index.html">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="tabla.html">Tabla</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="formulario.html">Formulario</a>
+      </li> -->
+    </ul>
+	</div>
+	<!-- Contenido_de_la_página -->
+  <div class="container">
+
+    <!-- Ruta del contendio -->
+    <ol th:replace="base/general :: ruta_contenido(
+      ruta=~{ :: .ruta}, ruta2=~{ :: .ruta2})">
+        <!-- Ruta de la página -->              
+    	<div class="ruta">Secciones</div>
+		<div class="ruta2"></div>	
+    </ol>
+	
+    <!-- Título de la pantalla -->
+    <div th:replace="base/general :: titulo_pantalla(
+      titulo=~{ :: .titulo}, btnPrincipal=~{ :: .btnPrincipal}, subTit=~{ :: .subTit}
+    )">
+      <h2 class="titulo">Diseño de Formulario</h2>
+      <div class="btnPrincipal"></div>
+			<h5 class="subTit">Unidad de Metodología</h5>
+    </div>
+	
+		<div class="row mb-4">
+      <div class="col-md-12">	
+				<div class="card" id="cardDetalleSeccion">
+					<div class="card-header">
+						<h5>Información de Sección</h5>
+						<small class="text-danger">* Obligatorio</small>
+					</div>	
+
+					<div class="card-body">
+						<!-- Mensajes -->
+						<div class="alert alert-success alert-dismissable" th:if="${success !=null}">
+							<label th:text="${success}"></label>
+							<button type="button" class="close" data-dismiss="alert">&times;</button>
+						</div>
+						<form id="formSeccion" th:action="@{/cuestionario/save}" th:object="${seccion}" method="post"> 	
+
+							<div class="form-row">
+								<div class="form-group col-md-6" >
+									<label for="codigo">Código: <span class="text-danger">*</span></label>
+									<input type="hidden" th:field="*{id}">											    
+									<input type="text" class="form-control" id="codigo" name="codigo" placeholder="Código" th:field="*{codigoSeccion}">
+									<small class="form-text text-danger" th:if="${#fields.hasErrors('codigoSeccion')}" th:errors="*{codigoSeccion}"></small>
+								</div>
+								<div class="form-group col-md-6" >
+									<label for="nombre">Nombre: <span class="text-danger">*</span></label>
+									<input type="hidden">											    
+										<input type="text" class="form-control" id="nombre" name="nombre"  placeholder="Nombre" th:field="*{nombreSeccion}">
+										<small class="form-text text-danger" th:if="${#fields.hasErrors('nombreSeccion')}" th:errors="*{nombreSeccion}"></small>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-group col-md-12">
+									<label for="descripcion">Descripción: <span class="text-danger">*</span></label>					    
+									<input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripción" th:field="*{descripcionSeccion}">
+									<small class="form-text text-danger" th:if="${#fields.hasErrors('descripcionSeccion')}" th:errors="*{descripcionSeccion}"></small>
+								</div>
+							</div>
+						
+											
+					</div>		
+
+					<div class="card-footer">
+						<div class="float-right">
+							<!--<a href="" class="btn btn-outline-dark"  role="button">Cancelar</a>-->
+							 <!--<a href="#" class="btn btn-outline-dark float-right btnLimpiar" onClick="btnLimpiarSeccion()">Limpiar </a>
+							<button class="btn btn-dark" type="submit" id="btnAccionSeccion" name="btnAccionSeccion">Guardar</button>-->
+							<!-- Botón de cancelar -->
+								<a 
+									href="/cuestionario/disenyo/"
+									class="btn btn-outline-dark" 
+									onClick="btnLimpiarSeccion()"
+									role="button"
+								>Limpiar</a>
+
+								<!-- Botón de submit -->
+								<button class="btn btn-dark" type="submit">Guardar</button>
+						</div>  
+					</div>    
+				</form>			
+				</div>			  
+			</div>   		   	
+		</div>
+
+		<div class="row mb-4">
+			<div class="col-md-12">
+				<div class="card">
+
+					<div class="card-header">
+						<h5>Lista de secciones</h5>
+					</div>
+
+					<div class="card-body">
+						<table class="table text-center table-striped">
+							<thead>
+								<tr>
+									<th>Código</th>
+									<th>Nombre</th>
+									<th>Descripción</th>			 				
+									 <!--<th>Estado</th>-->
+									<th>Acciones</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr th:each="seccion : ${secciones}">
+									<td th:text="${seccion.codigoSeccion}"></td>
+									<td th:text="${seccion.nombreSeccion}"></td>
+									<td th:text="${seccion.descripcionSeccion}"></td>			 				
+									 <!--<td>Finalizada</td>-->
+									<td>
+										 <!--<button class="btn btn-outline-dark" id="btnEditar" th:attr="onclick=|editarSeccion('${seccion.id}','${seccion.codigoSeccion}','${seccion.nombreSeccion}','${seccion.descripcionSeccion}' )|" data-toggle="tooltip" data-placement="bottom" title="Editar sección"> <i class="fas fa-edit"></i></button>-->
+										<a
+											th:href="@{/cuestionario/editar/{id} (id=${seccion.id})}"
+											class="btn btn-outline-dark"
+											data-toggle="tooltip"
+											data-placement="bottom"
+											title="Editar sección"
+										><i class="fas fa-edit"></i></a>
+										
+										<!--<a
+											class="btn btn-outline-dark"
+											data-toggle="tooltip"
+											data-placement="bottom"
+											title="Eliminar sección"
+										><i class="fas fa-trash-alt"></i></a>-->
+										<button class="btn btn-outline-dark" id="btnEliminar" th:attr="onclick=|eliminarSeccion('${seccion.id}' )|" data-toggle="tooltip" data-placement="bottom" title="Eliminar sección"> <i class="fas fa-trash-alt"></i></button>
+										<a
+											th:href="@{/cuestionario/preguntas}"
+											class="btn btn-outline-dark"
+											data-toggle="tooltip"
+											data-placement="bottom"
+											title="Agregar preguntas"
+										><i class="fas fa-plus"></i></a>
+									</td> 			 							
+								</tr>								
+							</tbody>	 				
+						</table>
+					</div>
+
+					<div class="card-footer">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	 
+	
+	<!-- Scripts generales -->
+	
+  <div th:replace="base/general :: scripts">  
+  </div>
+  <script th:src="@{/js/cuestionario/seccion.js}" type="text/javascript"></script>  
+	</body>
+</html>

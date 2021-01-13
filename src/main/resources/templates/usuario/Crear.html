@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Registrar Usuario</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Hojas de estilo generales -->
+    <div th:replace="base/general :: hojas_de_estilo"></div>
+</head>
+
+<body>
+    <!-- Barra_de_navegación -->
+    <div th:replace="base/general :: navbar(~{ :: .elementos})">
+        <ul class="navbar-nav mr-auto elementos">
+            <!-- <li class="nav-item">
+        <a class="nav-link" href="index.html">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="tabla.html">Tabla</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="formulario.html">Formulario</a>
+      </li> -->
+        </ul>
+    </div>
+    <div class="container">
+
+ <!-- Ruta del contendio -->
+    <ol th:replace="base/general :: ruta_contenido(
+      ruta=~{ :: .ruta}, ruta2=~{ :: .ruta2})">
+        <!-- Ruta de la página -->              
+    	<div class="ruta">
+       <a th:href="@{/usuario/administrar}">Usuarios</a>
+       </div>
+		<div class="ruta2">Crear</div>	
+    </ol>
+
+        <!-- Título de la pantalla -->
+        <div th:replace="base/general :: titulo_pantalla(titulo=~{ :: .titulo}, btnPrincipal=~{ :: .btnPrincipal}, subTit=~{ :: .subTit})">
+            <h2 class="titulo">Registrar Usuario</h2>
+            <div class="btnPrincipal"></div>
+            <h5 class="subTit"></h5>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header ">
+                        <h5>Informacion del Usuario</h5>
+                        <small class="text-danger">* Obligatorio</small>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="codigo">Codigo: <span class="text-danger">*</span></label><br>
+                                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="codigo">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="correo">Correo electronico:<span class="text-danger">*</span></label><br>
+                                    <input type="text" class="form-control" placeholder="Apellido" id="apellido" name="correo">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="codigo">Nombre: <span class="text-danger">*</span></label><br>
+                                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="correo">Apellido:<span class="text-danger">*</span></label><br>
+                                    <input type="text" class="form-control" placeholder="Apellido" id="apellido" name="apellido">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="correo">Dui:<span class="text-danger">*</span></label><br>
+                                    <input type="text" class="form-control" placeholder="Apellido" id="apellido" name="dui">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="carrera">Rol<span class="text-danger">*</span></label><br>
+                                    <select name="carrera" id="carrera" class="form-control">
+                                        <option value="" disabled selected>Seleccione un rol</option>
+                                        <option value="Jefedecampo">Jefe de Campo</option>
+                                        <option value="Encuestador">Encuestador</option>
+                                        <option value="UnidaddeCC">Unidad de CC</option>
+                                        <option value="Coordinador">Coordinador</option>
+                                    </select>
+                                </div>
+                            </div>
+                    </div>
+                    </form>
+                    <div class="card-footer text-muted">
+                        <div class="float-right">
+                            <a th:href="@{/usuario/administrar}" type="button" class="btn btn-outline-dark">
+                        Cancelar</a>
+                    <button type="submit" class="btn btn-dark">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <!-- Scripts generales -->
+    <div th:replace="base/general :: scripts"></div>         
+</body>
+</html>
