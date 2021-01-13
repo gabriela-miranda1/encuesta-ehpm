@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Asignacion03</title>
+		
+		<!-- Hojas css -->
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<!-- Font awesome -->
+		<link rel="stylesheet"
+			href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+			integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+			crossorigin="anonymous" />
+	
+	</head>
+	<body>
+		<!-- Barra de navegación -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand"><i class="fas fa-laptop-code"></i>
+				IGF/GRUPO-02</a>	
+		</nav>	
+		<div class="container">
+			<br> <br>
+			<h1>Encuestas en Revision</h1>
+			<h6>Grupo: 02</h6>
+			<br>
+			<div class="card">
+				<div class="card-header">
+					<h5>Encuestas en revision</h5>
+				</div>
+				<div class="card-body">
+					<table class="table text-center table-striped">
+						<thead>
+							<tr>
+								<th scope="col">Identificacion</th>
+								<th scope="col">Fecha</th>
+								<th scope="col">Encuesta</th>
+								<th scope="col">Acciones</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="listaRevision:${revision}">
+								<td th:text="${listaRevision.id}"></td>
+								<td th:text="${listaRevision.fecha}"></td>
+								<td th:text="${listaRevision.Nombre}"></td>
+	
+								<td>
+									<button type="submit" class="fas fa-info-circle btn btn-dark"
+										data-toggle="tooltip" data-placement="bottom"
+										title="Mas Informacion"></button>
+	
+	
+									<button type="submit" class="fas fa-eye btn btn-dark"
+										data-toggle="tooltip" data-placement="bottom"
+										title="Ver Observaciones"></button>
+	
+	
+									<button type="submit" class="fas fa-scroll btn btn-dark"
+										data-toggle="tooltip" data-placement="bottom"
+										title="Realizar aclaracion"></button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<!-- Scripts js -->
+		<!-- jQuery library -->
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- Popper JS -->
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<!-- Script tooltip -->
+		<script src="js/script_tooltip.js"></script>
+		<!-- Script tabla -->
+		<script src="js/tabla.js"></script>
+	</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Encuestas</title>
+		<!-- Hojas css -->
+	    <!-- Latest compiled and minified CSS -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	    <!-- Font awesome -->
+	    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	</head>
+	<body>
+		<div class="container">
+			<div class="container-fluid">
+			<br>
+			<br>
+			<h1>Administrar Encuesta</h1>  
+			<br>
+			<div class="row">
+				<div class="col-md-12"> 	
+			 		<div class="card">
+			   			<div class="card-header">
+					            <h5>Detalle de encuesta</h5>
+					            <small class="text-danger">*Obligatorio</small>
+				          	</div>		                  
+			   			<div class="card-body">
+				   			<form  method="post"> 	   			   			 
+								  <div class="form-row">
+								  	<div class="form-group col-md-6" >
+									    <label for="codigo">Código: <span class="text-danger">*</span></label>
+									    <input type="hidden">											    
+					            		<input type="text" class="form-control"  placeholder="Código" required="required">
+								  	</div>
+								  	<div class="form-group col-md-6" >
+									    <label for="nombre">Nombre: <span class="text-danger">*</span></label>
+									    <input type="hidden">											    
+					            		<input type="text" class="form-control"  placeholder="Nombre" required="required">
+								  	</div>
+									<div class="form-group col-md-12">
+									    <label for="descripcion">Descripción: <span class="text-danger">*</span></label>					    
+					            		<input type="text" class="form-control"  placeholder="Descripción" required="required">
+								 	</div>
+								  </div>					 					                  			  
+								</div>								  
+			   				<div class="card-footer">
+						   		<div class="float-right">
+							     <!-- Botón de cancelar -->
+							       <a class="btn btn-outline-dark"  role="button">Limpiar</a>
+							      <!-- Botón de submit -->
+							        <button class="btn btn-dark" type="submit">Guardar</button>
+						       	</div>  
+					    	</div>   
+			       		</form>   	
+			   		</div>
+			   		<br>
+			  	 </div>   		   	
+			 </div>	  	
+			 <div class="row">
+			 	<div class="col-md-12">
+			 		<div class="card">
+			 			<div class="card-header">
+			 				<h5>Lista de encuestas</h5>
+			 			</div>
+			 			<div class="card-body">
+			 				<table class="table text-center table-striped">
+			 					<thead>
+			 						<tr>
+			 							<th>Código</th>
+			 							<th>Nombre</th>
+			 							<th>Descripción</th>
+			 							<th>Fecha de creación</th>
+			 							<th>Estado</th>
+			 							<th>Acciones</th>
+			 						</tr>
+			 					</thead>
+			 					<tbody>
+			 						<tr>
+			 							<th>001</th>
+			 							<th>EHPM-2020</th>
+			 							<th>Encuesta para la DIGESTYC 2020</th>
+			 							<th>10/10/2020</th>
+			 							<th>Habilitada</th>
+			 							<th>
+			 								<a  class="btn btn-outline-dark" data-toggle="tooltip" data-placement="bottom" title="Editar encuesta"><i class="fas fa-edit"></i></a>
+	                      					<a  class="btn btn-outline-dark" data-toggle="tooltip" data-placement="bottom" title="Eliminar encuesta"><i class="fas fa-trash-alt"></i></a>
+	                      					<a  class="btn btn-outline-dark" data-toggle="tooltip" data-placement="bottom" title="Habilitar/Deshabilitar"><i class="far fa-check-square"></i></a>
+			 							</th> 			 							
+			 						</tr>
+			 					</tbody>	 				
+			 				</table>
+			 			</div>
+			 			<div class="card-footer">
+			 			</div>
+			 		</div>
+			 	</div>
+			 </div>
+			</div>	 
+		</div> 		 		     		
+	 <!-- Scripts js -->
+	    <!-- jQuery library -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	    <!-- Popper JS -->
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	    <!-- Latest compiled JavaScript -->
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	</body>
+</html>

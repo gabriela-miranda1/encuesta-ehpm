@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>UsuarioUpdate</title>
+    <!-- Hojas css -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+    <a class="navbar-text pull-left" th:href="@{/usuario/create}">ENCUESTA EHPM</a>
+     <a class="navbar-brand"  th:href="@{/usuario/create}"><i class="far fa-user-circle float-right"></i></a>   
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></button>
+      </nav>
+
+
+
+    <div class="container">
+        <h1>Agregar | Editar usuario</h1>
+
+        <div class="card">
+            <div class="card-header "><h2>Informacion de usuario</h2> 
+              <small class="text-danger">*Obligatorio</small>
+            </div> 
+            
+            <div class="card-body">
+                <form>
+
+                    <div class="form-row">
+
+                        <div class="form-group col-md-6">
+                            <label for="codigo">Codigo: <span class="text-danger">*</span></label><br>
+                            <input type="text" class="form-control" id="nombre" placeholder="Nombre"
+                                name="codigo">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="correo">Correo electronico:<span class="text-danger">*</span></label><br>
+                            <input type="text" class="form-control" placeholder="Apellido" id="apellido"
+                                name="correo">
+                        </div>
+
+                    </div>
+                                        <div class="form-row">
+
+                        <div class="form-group col-md-6">
+                            <label for="codigo">Nombre: <span class="text-danger">*</span></label><br>
+                            <input type="text" class="form-control" id="nombre" placeholder="Nombre"
+                                name="nombre">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="correo">Apellido:<span class="text-danger">*</span></label><br>
+                            <input type="text" class="form-control" placeholder="Apellido" id="apellido"
+                                name="apellido">
+                        </div>
+
+                    </div>
+                    <div class="form-row">
+                    
+                     <div class="form-group col-md-6">
+                            <label for="correo">Dui:<span class="text-danger">*</span></label><br>
+                            <input type="text" class="form-control" placeholder="Apellido" id="apellido"
+                                name="dui">
+                        </div>
+                    
+                         <div class="form-group col-md-6">
+
+                            <label for="carrera">Rol<span class="text-danger">*</span></label><br>
+                            <select name="carrera" id="carrera" class="form-control">
+
+                                <option value="" disabled selected>Seleccione un rol</option>
+                                <option value="Jefedecampo">Jefe de Campo</option>
+                                <option value="Encuestador">Encuestador</option>
+                                <option value="UnidaddeCC">Unidad de CC</option>
+                                <option value="Coordinador">Coordinador</option>
+
+                            </select>
+                        </div>
+
+                       </div>
+
+                    </div>
+
+                </form>
+            
+
+            <div class="card-footer text-muted">
+
+                <div class="float-right">
+                
+                    <button type="button" class="btn" style="background-color:#E2E1E1">
+                        Cancelar</button>
+                    <button type="submit" class="btn btn-dark">Guardar</button>
+                </div>
+            </div>
+        </div>
+</div>
+</body>
+</html>

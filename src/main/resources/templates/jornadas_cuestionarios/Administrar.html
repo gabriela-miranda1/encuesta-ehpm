@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>  
+  <title>Cuestionarios de Jornada</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Hojas de estilo generales -->
+  <div th:replace="base/general :: hojas_de_estilo"></div>
+</head>
+
+<body>
+  <!-- Barra_de_navegación -->
+  <div th:replace="base/general :: navbar(~{ :: .elementos})">
+    <ul class="navbar-nav mr-auto elementos">
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="index.html">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="tabla.html">Tabla</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="formulario.html">Formulario</a>
+      </li> -->
+    </ul>
+  </div> 
+  
+  <!-- Contenido_de_la_página -->
+  <div class="container">
+    <!-- Título de la pantalla -->
+    <th:block th:insert="base/general :: titulo_pantalla(
+      titulo=~{ :: .titulo}, btnPrincipal=~{ :: .btnPrincipal}, subTit=~{ :: .subTit}
+    )">
+      <h2 class="titulo">Administrar cuestionarios de la jornada XX</h2>
+      <h5 class="subTit">Coordinación de levantamiento de información</h5>      
+      <a
+        th:href="@{/jornada/cuestionarios/agregar}"
+        class="btn btn-dark btn-sm btnPrincipal"
+      ><i class="fas fa-plus"></i> Añadir cuestionarios</a>
+    </th:block>
+
+    <div class="row mb-4">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h5>Lista de cuestionarios</h5>
+          </div>		                  
+          <div class="card-body">
+            <table class="table text-center">
+              <thead>
+                <tr>
+                  <th>Identificación muestral</th>
+                  <th>Zona</th>
+                  <th>Departamento</th>
+                  <th>Municipio</th>
+                  <th>Domicilio</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>001</td>
+                  <td>Occidental</td>
+                  <td>Sonsonate</td>
+                  <td>Sonsonate</td>
+                  <td>Dirección</td>
+                  <td>Sin iniciar</td>
+                  <td>
+                    <a
+                      class="btn btn-outline-dark"
+                      data-toggle="tooltip"
+                      data-placement="bottom"
+                      title="Eliminar encuesta"
+                    ><i class="fas fa-trash-alt"></i></a>
+                  </td> 			 							
+                </tr>
+              </tbody>	 				
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <!-- Scripts generales -->
+  <div th:replace="base/general :: scripts"></div>
+</body>
+</html>  

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Encuestas Pendientes</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">	
+		<link rel="stylesheet"
+			href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+			integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+			crossorigin="anonymous" />
+	</head>
+	<body>
+		<!-- Barra_de_navegación para encuestas pendientes -->
+		<nav
+			class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+			<a class="navbar-text pull-left" th:href="@{/pendiente}">ENCUESTA
+				EHPM</a> <a class="navbar-brand" th:href="@{/pendiente}"><i
+				class="far fa-user-circle float-right"></i></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation"></button>
+		</nav>
+	
+		<!-- Contenido_de_la_página -->
+		<div class="container">
+			<h1>Encuestas pendientes</h1>
+			<h6>Grupo:04</h6>
+			<br>
+			<div class="card bg-light">
+				<div class="card-header ">
+					<div class="form-row">
+						<div class="col-md-6">
+							<h5>Encuestas pendientes</h5>
+						</div>
+					</div>
+				</div>
+				<div class="card-body">
+					<table class="table text-center table-striped ">
+						<thead>
+							<tr>
+								<th>Identificacion</th>
+								<th>Dirección</th>
+								<th>Encuestador</th>
+								<th>Ultima visita</th>
+								<th>Acciones</th>
+							</tr>
+						</thead>	
+						<tbody>
+							<tr th:each="lista2:${encuestas2}">
+								<td th:text=${lista2.identificacion}></td>
+								<td th:text=${lista2.direccion}></td>
+								<td th:text=${lista2.encuestador}></td>
+								<td th:text=${lista2.ultimaVisita}></td>
+								<td><a th:href="@{/}" class="btn btn-outline-dark" role="button" data-toggle="tooltip" data-placement="bottom">Más informacion</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>	
+		<br><br>
+	</body>
+</html>
