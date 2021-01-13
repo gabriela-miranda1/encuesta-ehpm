@@ -65,13 +65,15 @@
                   <label for="codigo">
                     Código: <span class="text-danger">*</span>
                   </label>
+                 <input type="hidden" th:field="*{id}">
                   <input
                     type="text"
                     class="form-control"
                     id="codigo"
                     placeholder="Código del grupo"
                     name="codigo"
-                    value="GP0001"
+                    value=""
+                    th:field="*{codigoGrupos}"
                   >
                 </div>
 
@@ -80,7 +82,7 @@
                     Nombre: <span class="text-danger">*</span>
                   </label>
                   <input type="text" class="form-control" placeholder="Nombre del grupo" id="nombre"
-                      name="nombre" value="Grupo 01">
+                      name="nombre" value="*{nombreGrupos}">
                 </div>
               </div>
 
