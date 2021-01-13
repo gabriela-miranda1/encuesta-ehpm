@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import sv.gob.models.grupos.Grupos;
 import sv.gob.models.miembros.Miembros;
 import sv.gob.service.administrador.IGrupoService;
+import sv.gob.service.grupos.GruposService;
 import sv.gob.service.grupos.IGruposService;
 
 @Controller
@@ -66,8 +67,17 @@ public class GrupoController {
 		// Guadamos el objeto grupo en la bd
 		grupo2.guardar(grupos);
 		attributes.addFlashAttribute("success", "Registro guardado con éxito");
-				
 		return "redirect:/grupo/administrar";	
 	}
 
+	@GetMapping("/eliminar/{id}")
+	private String eliminar(@PathVariable("id") String idGrupos, Model model, RedirectAttributes attributes)
+	{
+		//Eliminamos el grupo
+		     	grupo2.eliminar(idGrupos);
+		     	
+				attributes.addFlashAttribute("success", "Registro eliminado exitosamente");
+				return "redirect:/grupo/administrar";
+		
+	}
 }
